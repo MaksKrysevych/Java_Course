@@ -33,7 +33,6 @@ public class Main {
                 System.out.println("Input size of array: ");
                 int size = sc.nextInt();
                 int[] arr = new int[size];
-
                 Implementation.FillArray(sc, size, arr);
                 Implementation.Transform(sortOrder, arr);
                 Implementation.ShowArray(arr);

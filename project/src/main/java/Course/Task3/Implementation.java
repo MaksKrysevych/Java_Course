@@ -25,13 +25,20 @@ public class Implementation {
         return sortOrder;
     }
 
-    public static void Transform(SortOrder sortOrder, int[] arr) {
+    public static int[] Transform(SortOrder sortOrder, int[] arr) {
         sortOrder = IsSorted(sortOrder, arr);
         if (sortOrder == SortOrder.DESC) {
-            for (int i = 1; i < arr.length; i++) {
+            int temp;
+            for (int i = 0; i < arr.length/2; i++) {
+                temp = arr[arr.length-i-1];
+                arr[arr.length-i-1] = arr[i];
+                arr[i] = temp;
+            }
+            for (int i = 0; i < arr.length; i++) {
                 arr[i] += i;
             }
         }
+        return arr;
     }
 
     public static int MultArithmeticElements(int a1, int t, int n) {
@@ -54,7 +61,7 @@ public class Implementation {
         return res;
     }
 
-    public static void SumGeometricElements(int a1, double t, int alim) {
+    public static int SumGeometricElements(int a1, double t, int alim) {
         int res = a1;
 
         while (a1 * t >= alim) {
@@ -65,6 +72,7 @@ public class Implementation {
 
         System.out.printf("%d", a1);
         System.out.printf(" = %d\n\n", res);
+        return res;
     }
 
     public static void ShowArray(int[] arr) {
