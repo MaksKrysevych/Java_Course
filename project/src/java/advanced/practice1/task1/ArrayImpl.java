@@ -1,5 +1,5 @@
 package advanced.practice1.task1;
-
+import advanced.practice1.task1.task1.Array;
 import java.util.Iterator;
 
 public class ArrayImpl implements Array {
