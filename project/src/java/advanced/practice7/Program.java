@@ -14,13 +14,13 @@ public class Program {
         ResultSet rs = st.executeQuery("SELECT * FROM movies");
         //findMovieByYear(rs, "2001");
         //showStaffOfMovie(rs, "Avatar");
-        deleteOldMovie(rs, 20);
+        //deleteOldMovie(st, rs);
     }
 
-    private static void deleteOldMovie(ResultSet rsMovie, int year) throws SQLException {
-        while (rsMovie.next()) {
-            if (rsMovie.getInt("released") < (2022 - year)) {
-                System.out.println(rsMovie.getString("movie"));
+    private static void deleteOldMovie(Statement st, ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            if (rs.getInt("released") < (2022 - 22)) {
+                int res = st.executeUpdate("UPDATE movies SET movie, staff, released, country = ' ' WHERE id = " + rs.getInt("id"));
             }
         }
     }
